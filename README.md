@@ -5,7 +5,7 @@ OpenCV C++ code where I create 3D computer vision application modules. Repo cont
 ### Installation of OpenCV
 OpenCV is a bit complex to install due to its numerous dependencies and the vast possible flags/switches that can be enabled/disabled at installation time. My recommendation in reference to installation of OpenCV is accessible in a comment, [here](https://github.com/opencv/opencv/issues/22646#issuecomment-1368427549).
 
-### Building dynamic library (shared object .so)
+### Steps to building dynamic library (shared object .so)
 Shared objects are dynamic libraries. They get linked to programs at runtime hence the term "dynamic linking". To build a shared object from cpp files follow the following procedure:
 ```
 gcc -c function1.c function2.c -fpic    //Produces object files function1.o and function2.o
@@ -22,4 +22,12 @@ Note that the loader must see lib_calc.so in /usr/lib. Alternatively, the loader
 export LD_LIBRARY_PATH=:/dir/where/lib_calc.so/exists
 echo $LD_LIBRARY_PATH
 ```
-
+### Steps to building static library (.a)
+<source code file .c> -> |compiler| -> object file .o + library -> |linker| -> executable code
+Linker makes available of library functions at runtime. Library function code doesn't execute (can't be executable) normally because it contains no main()
+```
+gcc -c lib_add.c -o lib_add.o
+gcc -c lib_sub.c -o lib_sub.o
+ar rcs lib_calc.a lib_add.o lib_sub.o    //Creates static library lib_calc.a
+gcc -o main.c main.o -L. lib_calc.a
+```
