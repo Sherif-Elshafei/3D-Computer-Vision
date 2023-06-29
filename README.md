@@ -1,6 +1,9 @@
 # 3D-Computer-Vision
 OpenCV C++ code where I create 3D computer vision application modules. Repo contains calls that use basic as well as advanced openCV libraries. Modules could be further customized and/or cascaded to achieve complex 3D computer vision purposes. 
 
+## Usage
+In order to run any of the files you will have the file_name listed as a target in the Makefile. check the Makefile for dependencies and make sure all libraries are installed and are in the right place.
+
 ## What I learned
 ### Installation of OpenCV
 OpenCV is a bit complex to install due to its numerous dependencies and the vast possible flags/switches that can be enabled/disabled at installation time. My recommendation in reference to installation of OpenCV is accessible in a comment, [here](https://github.com/opencv/opencv/issues/22646#issuecomment-1368427549).
@@ -31,3 +34,5 @@ gcc -c lib_sub.c -o lib_sub.o
 ar rcs lib_calc.a lib_add.o lib_sub.o    //Creates static library lib_calc.a
 gcc -o main.c main.o -L. lib_calc.a
 ```
+### Solving 3D computer vision problems
+For example, camera calibrarion, estimating fundamental matrix from essential matrix, uncalibrated stereo.
