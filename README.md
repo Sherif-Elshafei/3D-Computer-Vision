@@ -23,7 +23,7 @@ export LD_LIBRARY_PATH=:/dir/where/lib_calc.so/exists
 echo $LD_LIBRARY_PATH
 ```
 ### Steps to building static library (.a)
-<source code file .c> -> |compiler| -> object file .o + library -> |linker| -> executable code
+source code file .c -> |compiler| -> object file .o + library -> |linker| -> executable code
 Linker makes available of library functions at runtime. Library function code doesn't execute (can't be executable) normally because it contains no main()
 ```
 gcc -c lib_add.c -o lib_add.o
